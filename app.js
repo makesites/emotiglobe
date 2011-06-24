@@ -33,13 +33,15 @@ app.configure('production', function(){
 
 app.get('/', function(req, res){
   res.render('index', {
-    title: 'Home'
+    title: 'Emotiglobe',
+	page: 'index'
   });
 });
 
 app.get('/about', function(req, res){
   res.render('about', {
-    title: 'About'
+    title: 'Emotiglobe :: About',
+	page: 'about'
   });
 });
 
