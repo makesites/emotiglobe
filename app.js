@@ -95,8 +95,8 @@ twit
   .addListener('tweet', function(tweet) {
 	var str = tweet.text;
 	if(tweet.coordinates != null){
-		var lat = Math.round(tweet.coordinates.coordinates[0]);
-		var lng = Math.round(tweet.coordinates.coordinates[1]);
+		var lat = Math.round(tweet.coordinates.coordinates[1]);
+		var lng = Math.round(tweet.coordinates.coordinates[0]);
 	}
 	if( lat != null && lng != null && (parseFloat(lat) != 0 && parseFloat(lng) != 0) ) {
 		var coords = lat+','+lng;
