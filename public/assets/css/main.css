@@ -5,8 +5,8 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-	background: #000000 url(../img/loading.gif) center center no-repeat;
-	color: #ffffff;
+	background: #fff url(../img/loading.gif) center center no-repeat;
+	color: #333;
 	font-family: sans-serif;
 	font-size: 13px;
 	line-height: 20px;
@@ -31,8 +31,6 @@ body {
 	left: 20px;
 	top: 63px;
 
-	background-color: rgba(0,0,0,0.2);
-
 	border-top: 1px solid rgba(255,255,255,0.4);
 	padding: 10px;
 }
@@ -55,7 +53,7 @@ a:hover {
 	top: 20px;
 	width: 270px;
 	left: 20px;
-	background-color: rgba(0,0,0,0.2);
+	background-color: rgba(0,0,0,0.1);
 	border-radius: 3px;
 	font: 20px Georgia;
 	padding: 10px;
@@ -91,4 +89,10 @@ a:hover {
 	bottom: 15px;
 	left: 20px;
 	background: url(../img/ce.png);
+}
+
+.fb_iframe_widget, .fb_edge_widget_with_comment {
+	position: absolute !important;
+	top: 8px;
+	right: 4px;
 }
