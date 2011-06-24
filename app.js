@@ -3,11 +3,15 @@
  */
 
 var express = require('express'), 
+	
 	app = module.exports = express.createServer(), 
 	config = require('./config/app.js'), 
 	data = {},
+	emotiglobe = require('./lib/emotiglobe'),
 	TwitterNode = require('twitter-node').TwitterNode;
 	//aws = require('node-aws');
+
+var current_date = emotiglobe.get_date();
 
 // Configuration
 
@@ -46,28 +50,9 @@ app.get('/about', function(req, res){
 });
 
 app.get('/data.json', function(req, res){
-  var output = {};
   
-  // get current date
-  var currentTime = new Date()
-  var month = currentTime.getMonth() + 1
-  var day = currentTime.getDate()
-  var year = currentTime.getFullYear()
+  var output = emotiglobe.create_json( data, current_date);
   
-  var date = (day + "-" + month + "-" + year)
-  
-  var today = new Array();
-  
-  var dailyData = new Array();
-  
-  // JSON.stringify(data)
-  for (i in data){
-	  var coords = i.split(",");
-	 dailyData.push( parseFloat(coords[0]), parseFloat(coords[1]), data[i] );
-  }
-  
-  // finalize output
-  output = '[["'+ date +'", ['+ dailyData.join(",") +']]]';
   res.send( output );
   //res.send( JSON.stringify(output) );
 });
@@ -82,9 +67,6 @@ var twit = new TwitterNode({
   locations: [-180, -90, 180, 90]
 });
 
-// http://apiwiki.twitter.com/Streaming-API-Documentation#QueryParameters
-//twit.params['count'] = 100;
-
 twit.headers['User-Agent'] = 'emotiglobe.com';
 
 // Make sure you listen for errors, otherwise
@@ -95,32 +77,7 @@ twit.addListener('error', function(error) {
 
 twit
   .addListener('tweet', function(tweet) {
-	var str = tweet.text;
-	if(tweet.coordinates != null){
-		var lat = Math.round(tweet.coordinates.coordinates[1]);
-		var lng = Math.round(tweet.coordinates.coordinates[0]);
-	}
-	if( lat != null && lng != null && (parseFloat(lat) != 0 && parseFloat(lng) != 0) ) {
-		var coords = lat+','+lng;
-		if( str.search("happy") ) { 
-			if( coords in data ){ 
-				data[coords] += 0.0001;
-			} else {
-				data[coords] = 0;
-			}
-			//console.log( data[lat+','+lng] );
-		} else if( str.search("sad") ) { 
-			if( coords in data ){ 
-				data[coords] -= 0.0001;
-			} else {
-				data[coords] = 0;
-			}
-			//console.log( data[lat+','+lng] );
-		}
-	}
-
-	//console.log("Tweet: ", tweet.text );
-	//console.log("Tweet: ", tweet.coordinates );
+	data = emotiglobe.update_data( tweet, data);
   })
 
   .addListener('limit', function(limit) {
