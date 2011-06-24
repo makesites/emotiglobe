@@ -107,8 +107,7 @@ twit
 				data[coords] = 0;
 			}
 			//console.log( data[lat+','+lng] );
-		}
-		if( str.search("sad") ) { 
+		} else if( str.search("sad") ) { 
 			if( coords in data ){ 
 				data[coords] -= 0.001;
 			} else {
