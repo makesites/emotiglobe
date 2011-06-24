@@ -98,7 +98,7 @@ twit
 		var lat = Math.round(tweet.coordinates.coordinates[0]);
 		var lng = Math.round(tweet.coordinates.coordinates[1]);
 	}
-	if( lat != null && lng != null ) {
+	if( lat != null && lng != null && (parseFloat(lat) != 0 && parseFloat(lng) != 0) ) {
 		var coords = lat+','+lng;
 		if( str.search("happy") ) { 
 			if( coords in data ){ 
