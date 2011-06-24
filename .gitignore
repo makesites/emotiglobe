@@ -1,3 +1,4 @@
 .DS_Store
 .nodester.appconfig
+config/app.js
 node_modules
