@@ -76,7 +76,7 @@ var twit = new TwitterNode({
   user: config.twitter_user, 
   password: config.twitter_pass,
   //track: ["I'm happy", "I feel happy", "it's sad", "it's really sad"],
-  track: ["happy", "sad"],
+  track: ["m happy", "m sad"],
   locations: [-180, -90, 180, 90]
 });
 
