@@ -51,7 +51,7 @@ app.get('/about', function(req, res){
 
 app.get('/data.json', function(req, res){
   
-  var output = emotiglobe.create_json( data, current_date);
+  var output = emotiglobe.create_json( data );
   
   res.send( output );
   //res.send( JSON.stringify(output) );
@@ -77,7 +77,15 @@ twit.addListener('error', function(error) {
 
 twit
   .addListener('tweet', function(tweet) {
-	data = emotiglobe.update_data( tweet, data);
+	  
+	  // reset the data every day
+	  var date = emotiglobe.get_date();
+	  if( date != current_date ){ 
+		data = {};
+		current_date = date;
+	  } else {
+		data = emotiglobe.update_data( tweet, data);
+	  } 
   })
 
   .addListener('limit', function(limit) {
