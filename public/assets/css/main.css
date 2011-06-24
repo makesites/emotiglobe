@@ -95,4 +95,5 @@ a:hover {
 	position: absolute !important;
 	top: 8px;
 	right: 4px;
+	z-index: 1000 !important;
 }
