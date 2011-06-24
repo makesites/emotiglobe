@@ -5,6 +5,7 @@
 var express = require('express'), 
 	app = module.exports = express.createServer(), 
 	config = require('./config/app.js'), 
+	data = {},
 	TwitterNode = require('twitter-node').TwitterNode;
 	//aws = require('node-aws');
 
@@ -42,6 +43,32 @@ app.get('/about', function(req, res){
   });
 });
 
+app.get('/data.json', function(req, res){
+  var output = {};
+  
+  // get current date
+  var currentTime = new Date()
+  var month = currentTime.getMonth() + 1
+  var day = currentTime.getDate()
+  var year = currentTime.getFullYear()
+  
+  var date = (day + "-" + month + "-" + year)
+  
+  var today = new Array();
+  
+  var dailyData = new Array();
+  
+  // JSON.stringify(data)
+  for (i in data){
+	  var coords = i.split(",");
+	 dailyData.push( parseFloat(coords[0]), parseFloat(coords[1]), data[i] );
+  }
+  
+  // finalize output
+  output = '[["'+ date +'", ['+ dailyData.join(",") +']]]';
+  res.send( output );
+  //res.send( JSON.stringify(output) );
+});
 
 // Twitter Node
 // you can pass args to create() or set them on the TwitterNode instance
@@ -67,18 +94,30 @@ twit.addListener('error', function(error) {
 twit
   .addListener('tweet', function(tweet) {
 	var str = tweet.text;
-	if(tweet.coordinates.coordinates[0] != null){
+	if(tweet.coordinates != null){
 		var lat = Math.round(tweet.coordinates.coordinates[0]);
-	}
-	if(tweet.coordinates.coordinates[1] != null){
 		var lng = Math.round(tweet.coordinates.coordinates[1]);
 	}
-	if( str.search("happy") && lat != null && lng != null ) { 
-		console.log("Happy: " + lat +", "+ lng );
+	if( lat != null && lng != null ) {
+		var coords = lat+','+lng;
+		if( str.search("happy") ) { 
+			if( coords in data ){ 
+				data[coords] += 0.001;
+			} else {
+				data[coords] = 0;
+			}
+			//console.log( data[lat+','+lng] );
+		}
+		if( str.search("sad") ) { 
+			if( coords in data ){ 
+				data[coords] -= 0.001;
+			} else {
+				data[coords] = 0;
+			}
+			//console.log( data[lat+','+lng] );
+		}
 	}
-	if( str.search("sad") && lat != null && lng != null ) { 
-		console.log("Sad: " + lat +", "+ lng );
-	}
+
 	//console.log("Tweet: ", tweet.text );
 	//console.log("Tweet: ", tweet.coordinates );
   })
