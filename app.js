@@ -102,14 +102,14 @@ twit
 		var coords = lat+','+lng;
 		if( str.search("happy") ) { 
 			if( coords in data ){ 
-				data[coords] += 0.001;
+				data[coords] += 0.0001;
 			} else {
 				data[coords] = 0;
 			}
 			//console.log( data[lat+','+lng] );
 		} else if( str.search("sad") ) { 
 			if( coords in data ){ 
-				data[coords] -= 0.001;
+				data[coords] -= 0.0001;
 			} else {
 				data[coords] = 0;
 			}
