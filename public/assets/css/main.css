@@ -98,6 +98,14 @@ a:hover {
 	background: url(../img/ce.png);
 }
 
+#fork {
+	position: absolute; 
+	top: 0; 
+	right: 0; 
+	border: 0; 
+	z-index: 1001 !important;
+}
+
 .fb_iframe_widget, .fb_edge_widget_with_comment {
 	position: absolute !important;
 	top: 8px;
