@@ -5,9 +5,9 @@
 var express = require('express'), 
 	
 	app = module.exports = express.createServer(), 
-	config = require('./config/app.js'), 
+	config = require(__dirname + '/config/app.js'), 
 	data = {},
-	emotiglobe = require('./lib/emotiglobe'),
+	emotiglobe = require( __dirname + '/lib/emotiglobe'),
 	TwitterNode = require('twitter-node').TwitterNode;
 	//aws = require('node-aws');
 
