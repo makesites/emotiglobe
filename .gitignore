@@ -2,3 +2,4 @@
 .nodester.appconfig
 node_modules
 npm-debug.log
+config/app.js
