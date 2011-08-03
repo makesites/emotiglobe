@@ -5,7 +5,10 @@ if(!Detector.webgl){
 
   var years = ['1990','1995','2000'];
   var container = document.getElementById('container');
-  var globe = new DAT.Globe(container);
+  var globe = new DAT.Globe(container, function(label) {
+    return new THREE.Color([
+      0xff0000, 0x00ff00][label]);
+  });
   console.log(globe);
   var i, tweens = [];
 
@@ -42,7 +45,7 @@ if(!Detector.webgl){
 		var data = JSON.parse(xhr.responseText);
 		window.data = data;
 		for (i=0;i<data.length;i++) {
-		  globe.addData(data[i][1], {format: 'magnitude', name: data[i][0], animated: true});
+		  globe.addData(data[i][1], {format: 'legend', name: data[i][0], animated: true});
 		}
 		globe.createPoints();
 		settime(globe,0)();
