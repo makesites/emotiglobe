@@ -1,10 +1,13 @@
 
 if(!Detector.webgl){
-  Detector.addGetWebGLMessage();
+  //Detector.addGetWebGLMessage();
+  // do nothing, fallbakc already in place...
 } else {
 
   var years = ['1990','1995','2000'];
   var container = document.getElementById('container');
+  // empty container from the placeholder content before we continue...
+  container.innerHTML = "";
   var globe = new DAT.Globe(container, function(label) {
     return new THREE.Color([
       0xEEEEEE, 0xFF0000, 0x00FF00][label]);

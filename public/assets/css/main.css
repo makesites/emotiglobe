@@ -16,6 +16,14 @@ body#index {
 	background: #fff url(../img/loading.gif) center center no-repeat;
 }
 
+
+#fallback { position: relative; width: 560px; height:600px; margin:0 auto; background:url(../img/fallback-back.jpg) no-repeat top left; }
+
+#fallback .copy { position: relative; top:150px; width:300px; margin: 0 auto; border:thin solid #FFF; border-radius:10px; background-color: rgba(255,255,255,.7); padding:10px; }
+
+#fallback .copy p { margin:0; padding:0 }
+
+
 #info {
 
 	font-size: 11px;
