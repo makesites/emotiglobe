@@ -15,6 +15,8 @@ var current_date = emotiglobe.get_date();
 
 process.env['APP_DIR'] = __dirname;
 
+emotiglobe.check_dir();
+
 // Configuration
 
 app.configure(function(){
@@ -108,7 +110,6 @@ twit
 
 // This will reset the stream
 twit.stream();
-
 
 // AWS 
 /*
