@@ -16,7 +16,7 @@ var current_date = emotiglobe.get_date();
 
 process.env['APP_DIR'] = __dirname;
 
-emotiglobe.check_dir();
+//emotiglobe.check_dir();
 
 // Configuration
 
