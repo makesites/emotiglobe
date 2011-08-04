@@ -7,7 +7,7 @@ if(!Detector.webgl){
   var container = document.getElementById('container');
   var globe = new DAT.Globe(container, function(label) {
     return new THREE.Color([
-      0xff0000, 0x00ff00][label]);
+      0xEEEEEE, 0xFF0000, 0x00FF00][label]);
   });
   console.log(globe);
   var i, tweens = [];
