@@ -108,11 +108,6 @@ twit
 
 // This will reset the stream
 twit.stream();
-	
-// Archive folder setup
-fs.chmod( process.env['APP_DIR'] +"/data/", 0666, function(err) {
-	if (err) throw err;
-});
 
 
 // AWS 
