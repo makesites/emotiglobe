@@ -51,7 +51,7 @@ app.get('/about', function(req, res){
 
 app.get('/data.json', function(req, res){
   
-  var output = emotiglobe.create_json( data );
+  var output = emotiglobe.get_json( data );
   
   res.send( output );
   //res.send( JSON.stringify(output) );
@@ -64,6 +64,7 @@ var twit = new TwitterNode({
   password: config.twitter_pass,
   //track: ["I'm happy", "I feel happy", "it's sad", "it's really sad"],
   track: ["m happy", "m sad"],
+  //track: [":)", ":("],
   locations: [-180, -90, 180, 90]
 });
 
