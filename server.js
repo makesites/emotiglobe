@@ -63,8 +63,8 @@ var twit = new TwitterNode({
   user: config.twitter_user, 
   password: config.twitter_pass,
   //track: ["I'm happy", "I feel happy", "it's sad", "it's really sad"],
-  track: ["m happy", "m sad"],
-  //track: [":)", ":("],
+  //track: ["m happy", "m sad"],
+  track: [":)", ":("],
   locations: [-180, -90, 180, 90]
 });
 
