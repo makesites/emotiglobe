@@ -1,0 +1,15 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Developer: Makis Tracend
+  Developer: Lyndel Thomas
+
+/* THANKS */
+  Chris Matthieu (http://nodester.com)
+
+/* SITE */
+  Standards: HTML5, JavaScript
+  Components: jQuery, Node.js, CakeJS
+  Software: Nodester
