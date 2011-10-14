@@ -1,7 +1,7 @@
 
 if(!Detector.webgl){
   //Detector.addGetWebGLMessage();
-  // do nothing, fallbakc already in place...
+  // do nothing, leave placeholder text...
 } else {
 
   var years = ['1990','1995','2000'];

@@ -83,7 +83,7 @@ twit.addListener('error', function(error) {
 
 twit
   .addListener('tweet', function(tweet) {
-	  
+
 	  // reset the data every day
 	  var date = emotiglobe.get_date();
 	  if( date != current_date ){ 
@@ -95,7 +95,7 @@ twit
   })
 
   .addListener('limit', function(limit) {
-	console.log("LIMIT: " + sys.inspect(limit));
+	//console.log("LIMIT: " + sys.inspect(limit));
   })
 
   .addListener('delete', function(del) {
@@ -104,13 +104,11 @@ twit
 
   .addListener('end', function(resp) {
 	console.log("wave goodbye... " + resp.statusCode);
-  })
-
-  .stream();
-
-
-// This will reset the stream
+  });
+  
+// initiate the stream
 twit.stream();
+
 
 // AWS 
 /*
