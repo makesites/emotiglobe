@@ -10,7 +10,6 @@ var express = require('express'),
 	data = {},
 	emotiglobe = require( __dirname + '/lib/emotiglobe'),
 	TwitterNode = require('twitter-node').TwitterNode;
-	//aws = require('node-aws');
 
 var current_date = emotiglobe.get_date();
 
@@ -87,7 +86,7 @@ twit
 	  // reset the data every day
 	  var date = emotiglobe.get_date();
 	  if( date != current_date ){ 
-		data = {};
+		data = emotiglobe.reset_data( data );
 		current_date = date;
 	  } else {
 		data = emotiglobe.update_data( tweet, data);
@@ -109,32 +108,6 @@ twit
 // initiate the stream
 twit.stream();
 
-
-// AWS 
-/*
-var client = aws.createClient({
-  accessKeyId: '...',
-  secretAccessKey: '...',
-});
-
-aws.request('simpleDb', 'putAttributes', {
-  domainName: "test",
-  itemName: "item1",
-  attributes: [
-    {
-      name: 'key1',
-      value: 'val1',
-    },
-  ],
-}, function(response) {
-  if (response instanceof Error) {
-    // uh oh
-    console.log(response.code, response.message);
-  } else {
-    // it worked!
-  }
-}); 
-*/
 
 // Only listen on $ node app.js
 if (!module.parent) {
