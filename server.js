@@ -86,7 +86,7 @@ twit
 	  // reset the data every day
 	  var date = emotiglobe.get_date();
 	  if( date != current_date ){ 
-		data = emotiglobe.reset_data( data );
+		data = emotiglobe.reset_data( current_date, data );
 		current_date = date;
 	  } else {
 		data = emotiglobe.update_data( tweet, data);
