@@ -8,5 +8,6 @@ module.exports = config = {
 
   "aws_key" : "00000000000",
   "aws_secret" : "00000000000000000",
+  "aws_bucket" : "s3bucketname",
 
 }
