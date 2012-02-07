@@ -1,5 +1,6 @@
+.nodester.appconfig
+
 .DS_Store
 node_modules
 npm-debug.log
 data/
-config/app.js
