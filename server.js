@@ -3,7 +3,7 @@
  */
 
 var express = require('express'), 
-	sys = require('util'),
+	util = require('util'),
 	fs = require('fs'),
 	app = module.exports = express.createServer(), 
 	config = require(__dirname + '/config/app.js'), 
@@ -94,11 +94,11 @@ twit
   })
 
   .addListener('limit', function(limit) {
-	//console.log("LIMIT: " + sys.inspect(limit));
+	//console.log("LIMIT: " + util.inspect(limit));
   })
 
   .addListener('delete', function(del) {
-	console.log("DELETE: " + sys.inspect(del));
+	console.log("DELETE: " + util.inspect(del));
   })
 
   .addListener('end', function(resp) {
@@ -112,5 +112,5 @@ twit.stream();
 // Only listen on $ node app.js
 if (!module.parent) {
   app.listen(config.port);
-  console.log("Express server listening on port %d", app.address().port);
+  //console.log("Express server listening on port %d", app.address().port);
 }
