@@ -3,7 +3,7 @@
  */
 
 var express = require('express'), 
-	sys = require('sys'),
+	sys = require('util'),
 	fs = require('fs'),
 	app = module.exports = express.createServer(), 
 	config = require(__dirname + '/config/app.js'), 
