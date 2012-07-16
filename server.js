@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 
-var app = require(__dirname + '/index');
+var app = require(__dirname + '/index').app;
 
 // Only listen on $ node app.js
 if (!module.parent) {
