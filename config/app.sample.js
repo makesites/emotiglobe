@@ -3,6 +3,11 @@ module.exports = config = {
 
   "port" : 10000,
 
+  "data" : {
+	  "track" : ["happy", "sad"],
+	  "locations" : [-180, -90, 180, 90]
+  }, 
+  
   "twitter" : {
 	  "key" : "",
 	  "secret" : "",
@@ -10,9 +15,11 @@ module.exports = config = {
 	  "token_secret" : ""
   }, 
   
-  "aws_key" : "00000000000",
-  "aws_secret" : "00000000000000000",
-  "aws_bucket" : "s3bucketname",
-  "aws_path" : "/emotiglobe/",
-
+  "aws" : {
+	  "key" : "",
+	  "secret" : "",
+	  "bucket" : "s3bucketname",
+	  "path" : "/emotiglobe/"
+  }
+  
 }
