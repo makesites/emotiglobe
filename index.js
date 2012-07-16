@@ -57,7 +57,6 @@ app.get('/about', function(req, res){
 app.get('/data.json', function(req, res){
   
   var output = data.json();
- console.log("get json"); 
   res.send( output );
   //res.send( JSON.stringify(output) );
 });
