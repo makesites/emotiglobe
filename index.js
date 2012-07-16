@@ -3,13 +3,11 @@
  */
 
 var express = require('express'), 
-	//util = require('util'),
 	jade = require('jade'),
-	fs = require('fs'),
 	app = express.createServer(), 
-	config = require(__dirname + '/config/app.js'), 
+	config = require( __dirname + '/config/app.js'), 
 	data = require( __dirname + '/lib/data'),
-	twitter = require('ntwitter');
+	stream = require( __dirname + '/lib/stream');
 
 // Configuration
 
@@ -56,26 +54,8 @@ app.get('/data.json', function(req, res){
   
 });
 
-var twit = new twitter({
-  consumer_key: config.twitter.key,
-  consumer_secret: config.twitter.secret,
-  access_token_key: config.twitter.token_key,
-  access_token_secret: config.twitter.token_secret
-});
-
-twit.stream('statuses/filter', {track:["happy", "sad"], 'locations':[-180, -90, 180, 90]}, function(stream) {
-  stream.on('data', function ( stream ) {
-    
-		data.update( stream );
-	  
-  });
-  stream.on('end', function (response) {
-    // Handle a disconnection
-  });
-  stream.on('destroy', function (response) {
-    // Handle a 'silent' disconnection from Twitter, no end/error event fired
-  });
-});
+// load the stream
+stream.init( data );
 
 // export the app (to the server)
 exports.app = app;
