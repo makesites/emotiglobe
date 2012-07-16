@@ -3,16 +3,15 @@
  */
 
 var express = require('express'), 
-	util = require('util'),
+	//util = require('util'),
 	jade = require('jade'),
 	fs = require('fs'),
 	app = express.createServer(), 
 	config = require(__dirname + '/config/app.js'), 
-	data = {},
-	emotiglobe = require( __dirname + '/lib/emotiglobe'),
+	data = require( __dirname + '/lib/emotiglobe'),
 	twitter = require('ntwitter');
 
-var current_date = emotiglobe.get_date();
+//var current_date = emotiglobe.get_date();
 
 //process.env['APP_DIR'] = __dirname;
 
@@ -56,8 +55,8 @@ app.get('/about', function(req, res){
 
 app.get('/data.json', function(req, res){
   
-  var output = emotiglobe.get_json( data );
-  
+  var output = data.json();
+ console.log("get json"); 
   res.send( output );
   //res.send( JSON.stringify(output) );
 });
@@ -88,16 +87,9 @@ twit.verifyCredentials(function (err, data) {
   });*/
 
 twit.stream('statuses/filter', {track:["happy", "sad"], 'locations':[-180, -90, 180, 90]}, function(stream) {
-  stream.on('data', function (data) {
+  stream.on('data', function ( stream ) {
     
-	  // reset the data every day
-	  var date = emotiglobe.get_date();
-	  if( date != current_date ){ 
-		data = emotiglobe.reset_data( current_date, data );
-		current_date = date;
-	  } else {
-		data = emotiglobe.update_data( stream, data);
-	  } 
+		data.update( stream );
 	  
   });
   stream.on('end', function (response) {
@@ -144,6 +136,6 @@ twit.stream();
 */
 
 // Only listen on $ node app.js
-module.exports = app;
+exports.app = app;
   //console.log("Express server listening on port %d", app.address().port);
 //}
