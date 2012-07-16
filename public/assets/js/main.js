@@ -1,21 +1,20 @@
-
-if(!Detector.webgl){
-  //Detector.addGetWebGLMessage();
-  // do nothing, leave placeholder text...
-} else {
-
-  var years = ['1990','1995','2000'];
-  var container = document.getElementById('container');
-  // empty container from the placeholder content before we continue...
-  container.innerHTML = "";
-  var globe = new DAT.Globe(container, function(label) {
-    return new THREE.Color([
-      0xEEEEEE, 0xFF0000, 0x00FF00][label]);
-  });
-  console.log(globe);
-  var i, tweens = [];
-
-  var settime = function(globe, t) {
+function init(){ 
+	// if no WebGL do nothing (leave placeholder text)
+	if (!Detector.webgl) return;
+	//Detector.addGetWebGLMessage();
+	
+	var years = ['1990','1995','2000'];
+	var container = document.getElementById('container');
+	// empty container from the placeholder content before we continue...
+	container.innerHTML = "";
+	var globe = new DAT.Globe(container, function(label) {
+	return new THREE.Color([
+	  0xEEEEEE, 0xFF0000, 0x00FF00][label]);
+	});
+	
+	var i, tweens = [];
+	
+	var settime = function(globe, t) {
 	return function() {
 	  new TWEEN.Tween(globe).to({time: t/years.length},500).easing(TWEEN.Easing.Cubic.EaseOut).start();
 	  /*var y = document.getElementById('year'+years[t]);
@@ -28,20 +27,20 @@ if(!Detector.webgl){
 	  }
 	  y.setAttribute('class', 'year active');*/
 	};
-  };
-/*
-  for(var i = 0; i<years.length; i++) {
+	};
+	/*
+	for(var i = 0; i<years.length; i++) {
 	var y = document.getElementById('year'+years[i]);
 	y.addEventListener('mouseover', settime(globe,i), false);
-  }
-*/
-  var xhr;
-  TWEEN.start();
-
-
-  xhr = new XMLHttpRequest();
-  xhr.open('GET', '/data.json', true);
-  xhr.onreadystatechange = function(e) {
+	}
+	*/
+	var xhr;
+	TWEEN.start();
+	
+	
+	xhr = new XMLHttpRequest();
+	xhr.open('GET', '/data.json', true);
+	xhr.onreadystatechange = function(e) {
 	if (xhr.readyState === 4) {
 	  if (xhr.status === 200) {
 		console.log(xhr.responseText);
@@ -55,6 +54,7 @@ if(!Detector.webgl){
 		globe.animate();
 	  }
 	}
-  };
-  xhr.send(null);
+	};
+	xhr.send(null);
+
 }

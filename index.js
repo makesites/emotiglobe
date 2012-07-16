@@ -23,6 +23,7 @@ app.configure(function(){
 	app
 	.set('views', __dirname + '/views')
 	.set('view engine', 'jade')
+	.set('view options', { layout: false })
 	.use(express.static(__dirname + '/public'));
 //  app.use(express.bodyParser());
 //  app.use(express.methodOverride());
