@@ -8,7 +8,7 @@ var express = require('express'),
 	fs = require('fs'),
 	app = express.createServer(), 
 	config = require(__dirname + '/config/app.js'), 
-	data = require( __dirname + '/lib/emotiglobe'),
+	data = require( __dirname + '/lib/data'),
 	twitter = require('ntwitter');
 
 //var current_date = emotiglobe.get_date();
