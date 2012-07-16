@@ -11,12 +11,6 @@ var express = require('express'),
 	data = require( __dirname + '/lib/data'),
 	twitter = require('ntwitter');
 
-//var current_date = emotiglobe.get_date();
-
-//process.env['APP_DIR'] = __dirname;
-
-//emotiglobe.check_dir();
-
 // Configuration
 
 app.configure(function(){
@@ -59,20 +53,8 @@ app.get('/data.json', function(req, res){
   
   var output = data.json();
   res.send( output );
-  //res.send( JSON.stringify(output) );
+  
 });
-
-// Twitter Node
-// you can pass args to create() or set them on the TwitterNode instance
-
-/*var twit = new TwitterNode({
-  user: config.twitter_user, 
-  password: config.twitter_pass,
-  //track: ["I'm happy", "I feel happy", "it's sad", "it's really sad"],
-  //track: ["m happy", "m sad"],
-  track: [":)", ":("],
-  locations: [-180, -90, 180, 90]
-});*/
 
 var twit = new twitter({
   consumer_key: config.twitter.key,
@@ -80,12 +62,6 @@ var twit = new twitter({
   access_token_key: config.twitter.token_key,
   access_token_secret: config.twitter.token_secret
 });
-
-//twit.headers['User-Agent'] = 'emotiglobe.com';
-/*
-twit.verifyCredentials(function (err, data) {
-    //console.log(data);
-  });*/
 
 twit.stream('statuses/filter', {track:["happy", "sad"], 'locations':[-180, -90, 180, 90]}, function(stream) {
   stream.on('data', function ( stream ) {
@@ -101,42 +77,6 @@ twit.stream('statuses/filter', {track:["happy", "sad"], 'locations':[-180, -90, 
   });
 });
 
-// Make sure you listen for errors, otherwise
-// they are thrown
-/*twit.addListener('error', function(error) {
-  console.log(error.message);
-});*/
-
-/*twit
-  .addListener('tweet', function(tweet) {
-
-	  // reset the data every day
-	  var date = emotiglobe.get_date();
-	  if( date != current_date ){ 
-		data = emotiglobe.reset_data( current_date, data );
-		current_date = date;
-	  } else {
-		data = emotiglobe.update_data( tweet, data);
-	  } 
-  })
-
-  .addListener('limit', function(limit) {
-	//console.log("LIMIT: " + util.inspect(limit));
-  })
-
-  .addListener('delete', function(del) {
-	console.log("DELETE: " + util.inspect(del));
-  })
-
-  .addListener('end', function(resp) {
-	console.log("wave goodbye... " + resp.statusCode);
-  });
-  
-// initiate the stream
-twit.stream();
-*/
-
-// Only listen on $ node app.js
+// export the app (to the server)
 exports.app = app;
-  //console.log("Express server listening on port %d", app.address().port);
-//}
+
