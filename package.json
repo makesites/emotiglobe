@@ -1,0 +1,38 @@
+{
+  "name": "emotiglobe",
+  "version": "1.2.0",
+  "homepage": "http://emotiglobe.com", 
+  "description": "See how the world is feeling in realtime",
+  "keywords": ["globe", "webgl", "twitter", "emotion", "experiment"], 
+  "author": "makesites",
+  "contributors": [
+    {
+      "name": "Makis Tracend",
+      "email": "makis@makesit.es"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/makesites/emotiglobe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/makesites/emotiglobe/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT License",
+      "url": "http://opensource.org/comment/935"
+    }
+  ],
+  "scripts": {
+    "start": "server.js"
+  },
+  "engines": {
+    "node": ">=0.6.x"
+  },
+  "dependencies": {
+	"express": ">=3.0.x",
+    "jade": ">0.26.x",
+    "ntwitter": ">=0.4.x"
+  }
+}
