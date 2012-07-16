@@ -4,7 +4,7 @@ module.exports = config = {
   "port" : 10000,
 
   "data" : {
-	  "track" : ["happy", "sad"],
+	  "track" : [":&#41;", ":&#42;"],
 	  "locations" : [-180, -90, 180, 90]
   }, 
   
