@@ -33,6 +33,7 @@
   "dependencies": {
 	"express": ">=3.0.x",
     "jade": ">0.26.x",
-    "ntwitter": ">=0.4.x"
+    "ntwitter": ">=0.5.x",
+    "xml2js": ">=0.1.x"
   }
 }
