@@ -4,10 +4,12 @@
 
 var express = require('express'), 
 	jade = require('jade'),
-	app = express.createServer(), 
+	app = express(), 
 	config = require( __dirname + '/config/app.js'), 
 	data = require( __dirname + '/lib/data'),
-	stream = require( __dirname + '/lib/stream');
+	stream = require( __dirname + '/lib/stream')
+	http = require('http')
+	server = http.createServer(app);
 
 // Configuration
 
@@ -58,5 +60,4 @@ app.get('/data.json', function(req, res){
 stream.init( data );
 
 // export the app (to the server)
-exports.app = app;
-
+exports.app = server;
