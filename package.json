@@ -31,9 +31,9 @@
     "node": ">=0.6.x"
   },
   "dependencies": {
-	"express": ">=3.0.x",
-    "jade": ">0.26.x",
+	"express": ">=3.0.x"
     "ntwitter": ">=0.5.x",
-    "xml2js": ">=0.1.x"
+    "xml2js": ">=0.1.x", 
+	"hbs": ">=2.0.x"
   }
 }
