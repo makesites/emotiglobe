@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <title>{{title}}</title>
+    
+    <link rel='stylesheet' href='/assets/css/main.css'>
+    {{{block "styles"}}}
+    
+    <meta property="og:title" content="Emotiglobe">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://emotiglobe.com/">
+    <meta property="og:image" content="http://emotiglobe.com/apple-touch-icon.png">
+    <meta property="og:site_name" content="Emotiglobe">
+    <meta property="fb:admins" content="tracend,ryndel">
+    <meta property="og:description" content="See how the world is feeling in realtime...">
+ 
+</head>    
+<body id="{{page}}">
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js#appId=197164370332025&amp;xfbml=1"></script>
+    <fb:like href="emotiglobe.com" send="false" width="360" show_faces="true" font=""></fb:like>
+    
+    {{{body}}}
+	
+    {{{block "scripts"}}}
+    
+	<script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-16164477-9']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+	</script>
+ </body>
+ </html>

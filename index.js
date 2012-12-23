@@ -3,21 +3,21 @@
  */
 
 var express = require('express'), 
-	jade = require('jade'),
 	app = express(), 
 	config = require( __dirname + '/config/app.js'), 
 	data = require( __dirname + '/lib/data'),
 	stream = require( __dirname + '/lib/stream')
 	http = require('http')
-	server = http.createServer(app);
+	server = http.createServer(app),
+	hbs = require('hbs');
 
 // Configuration
 
 app.configure(function(){
 	app
 	.set('views', __dirname + '/views')
-	.set('view engine', 'jade')
-	.set('view options', { layout: false })
+	.set('view engine', 'html')
+	.engine("html",  require('hbs').__express )
 	.use(express.static(__dirname + '/public'));
 //  app.use(express.bodyParser());
 //  app.use(express.methodOverride());
@@ -54,6 +54,27 @@ app.get('/data.json', function(req, res){
   var output = data.json();
   res.send( output );
   
+});
+
+// configure handlebars
+
+var blocks = {};
+
+hbs.registerHelper('extend', function(name, context) {
+    var block = blocks[name];
+    if (!block) {
+        block = blocks[name] = [];
+    }
+	
+    block.push(context.fn(this));
+});
+
+hbs.registerHelper('block', function(name) {
+    var val = (blocks[name] || []).join('\n');
+
+    // clear the block
+    blocks[name] = [];
+    return val;
 });
 
 // load the stream
