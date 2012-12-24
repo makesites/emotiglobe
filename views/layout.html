@@ -13,12 +13,23 @@
     <meta property="og:site_name" content="Emotiglobe">
     <meta property="fb:admins" content="tracend,ryndel">
     <meta property="og:description" content="See how the world is feeling in realtime...">
+    
  
 </head>    
 <body id="{{page}}">
-    <div id="fb-root"></div>
-    <script src="http://connect.facebook.net/en_US/all.js#appId=197164370332025&amp;xfbml=1"></script>
-    <fb:like href="emotiglobe.com" send="false" width="360" show_faces="true" font=""></fb:like>
+    
+   
+   
+    <div class="share clearfix">
+    <! -- Google Plus -->
+    <div class="g-plusone" data-size="medium"><a href="https:/plus.goolge.com">Share on G+</a></div>
+    <! -- Twitter -->
+    <div class="twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">Share on Twitter</a></div>
+    <! -- Facebook -->
+    <div class="fb-like" data-layout="button_count" data-send="false" data-show-faces="false"></div>
+	</div>
+
+
     
     {{{body}}}
 	
@@ -35,5 +46,10 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 	</script>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    
+    
  </body>
  </html>
