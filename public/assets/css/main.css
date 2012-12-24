@@ -97,7 +97,6 @@ body#index {
 	left: 20px;
 	top: 63px;
 	margin: 0 auto;
-	
 	padding: 10px;
 	border-top: 1px solid rgba(255,255,255,0.4);
 	z-index:999;
@@ -136,6 +135,18 @@ a.external {
 	font-size: 1.2em;
 	/* font: 20px Georgia; */
 	z-index:999;
+}
+
+#slider {
+	position: absolute;
+	width:100%;
+	bottom: 10px;
+	left: 10px;
+}
+
+#slider input {
+	 width:90%; 
+	 margin:0 auto;
 }
 
 /* .year {
