@@ -3,6 +3,7 @@
 
 html {
 	height: 100%;
+	font-size:95%;
 }
 
 body {
@@ -10,10 +11,9 @@ body {
 	margin: 0;
 	padding: 0;
 	color: #333;
-	font-family: sans-serif;
-	font-size: 13px;
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	font-size: 1em;
 	line-height: 20px;
-	
 }
 
 body#index { 
@@ -26,13 +26,11 @@ body#index {
 	width: 360px;
 	height: 50px;
 	padding-top: 12px;
-	
 }
 
 .share div {
 	float: left !important;
 	width: 90px;
-	
 }
 
 .fallback { 
@@ -49,8 +47,9 @@ body#index {
 	width:300px; 
 	margin: 0 auto;
 	padding:10px; 
-	border:thin solid #FFF; 
-	border-radius:10px; 
+	border:thin solid #fff; 
+	border-radius:10px;
+	-webkit-border-radius: 10px;
 	background-color: rgba(255,255,255,.7); 
 }
 
@@ -107,7 +106,9 @@ a.external {
 	padding: 10px;
 	background-color: rgba(0,0,0,0.1);
 	border-radius: 3px;
-	font: 20px Georgia;
+	-webkit-border-radius: 3px;
+	font-size: 1.2em;
+	/* font: 20px Georgia; */
 	z-index:999;
 }
 
@@ -156,6 +157,40 @@ a.external {
 	right: 200px;
 	z-index: 1000 !important;
 } */
+
+/* clearfix solution */
+.colgroup:before, .colgroup:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.colgroup:after { clear: both; }
+.colgroup { zoom: 1; }
+
+.col1, .col2, .col3, .col4, .col5, .col6 {
+	float:left; 
+	padding: 20px;
+}
+
+.colgroup section, .colgroup .column { 
+	margin: 0 auto;
+}
+
+.colgroup section h2 {
+	padding: 10px 0;
+}
+
+.colgroup section p {
+	padding-bottom: 10px;
+}
+ 
+.colgroup .content {
+	/* padding: @padding-med; */
+}
+
+.col1 { width:100%; }
+.col2 { width:75%  }
+.col3 { width:50%; }
+.col4 { width:33.333%; }
+.col5 { width: 25%; }
+.col6 { width: 16.666%; }
+.col7 { width: 8.333%; }
 
 .ribbon {
 	position: absolute;
