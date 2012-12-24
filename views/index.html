@@ -6,7 +6,7 @@
 		<a href="/about">read more</a>
     </div>
     <div id="container">
-		<div class="fallback">
+    	<div class="fallback">
 			<div class="copy">
 				<p><strong>This code is experimental. It requires a desktop browser with webGL support e.g. Chrome or Firefox.</strong></p>
 				<p>Emotiglobe is a visual representation of how the world is feeling right now. The lines drawn in specific geographic locations reveal how people are feeling. The bigger the line is, the more happy expressions we captured from people in that area.</p>
@@ -17,12 +17,16 @@
     
 {{#extend "scripts"}}
 
-    <script type="text/javascript" src="/assets/js/libs/Three/ThreeWebGL.js"></script>
+    
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r53/three.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	
     <script type="text/javascript" src="/assets/js/libs/Three/ThreeExtras.js"></script>
     <script type="text/javascript" src="/assets/js/libs/Three/RequestAnimationFrame.js"></script>
     <script type="text/javascript" src="/assets/js/libs/Three/Detector.js"></script>
     <script type="text/javascript" src="/assets/js/libs/Tween.js"></script>
     <script type="text/javascript" src="/assets/js/globe.js"></script>
+    
     <script type="text/javascript" src="/assets/js/main.js"></script>
     
 	<script type="text/javascript">
