@@ -1,6 +1,27 @@
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 * { margin:0; padding:0 }
 
+/* fonts */
+@font-face {
+	font-family: 'iconset';
+	src:url('fonts/iconset/webfont.eot');
+	src:url('fonts/iconset/webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/iconset/webfont.svg#iconset') format('svg'),
+		url('fonts/iconset/webfont.woff') format('woff'),
+		url('fonts/iconset/webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[data-icon]:before {
+	font-family: 'iconset'; 
+  	content: attr(data-icon);
+  	speak: none; 
+  	font-style: normal;
+  	font-weight: normal;
+  	-webkit-font-smoothing: antialiased;
+}
+
 html {
 	height: 100%;
 	font-size:95%;
@@ -14,6 +35,10 @@ body {
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	line-height: 20px;
+}
+
+h1, h2, h3, h4, h5 {
+	font-weight:600;
 }
 
 body#index { 
@@ -71,7 +96,8 @@ body#index {
 	position: absolute;
 	left: 20px;
 	top: 63px;
-	width: 270px;
+	margin: 0 auto;
+	
 	padding: 10px;
 	border-top: 1px solid rgba(255,255,255,0.4);
 	z-index:999;
@@ -165,7 +191,7 @@ a.external {
 
 .col1, .col2, .col3, .col4, .col5, .col6 {
 	float:left; 
-	padding: 20px;
+	padding: 20px 50px;
 }
 
 .colgroup section, .colgroup .column { 
@@ -174,10 +200,21 @@ a.external {
 
 .colgroup section h2 {
 	padding: 10px 0;
+	text-align: center;
+	
 }
 
 .colgroup section p {
 	padding-bottom: 10px;
+}
+
+.colgroup section i {
+	font-size: 4em;
+	color:#0C0;
+	text-align: center;
+	display: block;
+	
+	padding: 20px 0;
 }
  
 .colgroup .content {
@@ -194,6 +231,7 @@ a.external {
 
 .ribbon {
 	position: absolute;
+	overflow: hidden;
 	right: 0;
 	top: 0;
 	width: 200px;
