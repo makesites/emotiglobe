@@ -58,3 +58,100 @@ function init(){
 	xhr.send(null);
 
 }
+
+function slider() {
+	// get today's date
+	var today = new Date(); // looks like: Mon Dec 24 2012 17:58:26 GMT-0800 (PST) 
+	// var today = new Date(2012, 01, 05, 00, 00, 00, 00);
+	
+	// get year from today's date
+	var year = today.getFullYear(); // looks like 2012
+	
+	// get the day number of the year for todays date
+	var dateAsDayNumber = dateToDayNumber(today); // looks like 359
+	
+	// setup the slider
+	initializeSlider(year, dateAsDayNumber);
+	
+		function initializeSlider(year, dateAsDayNumber) {
+			// get the width of the slider input
+			var sliderWidth = $('#slider input').width();
+			// set the amount to multiply the date display position
+			var multiplier = sliderWidth / dateAsDayNumber;
+			var newdate = getSliderDate(year, dateAsDayNumber);
+	
+			// set the number of steps, max and value in slider to today
+			$('#slider input')
+						.attr('max', dateAsDayNumber)
+						.attr('value', dateAsDayNumber)
+						.attr('steps', dateAsDayNumber);
+			// set the position of the slider date display
+			$('#slider .date').css("left", dateAsDayNumber * multiplier +"px" );
+			// update the date display
+			updateSliderDate(year, dateAsDayNumber); 
+	}
+	
+	// monitor slider change and update slider date
+	$('#slider input').change(function() {
+		var currentDay = ($(this).val());
+		updateSliderDate(year, currentDay);
+	});
+	
+	function updateSliderDate(year, date) {
+		var newdate = getSliderDate(year, date);
+	
+		var day = newdate.getDate();
+		var mon = newdate.getMonth() + 1;
+		var year = newdate.getFullYear();
+		var pretty = mon + "-" + day + "-" + year;
+		var sliderWidth = $('#slider input').width();
+		var multiplier = sliderWidth / dateAsDayNumber;
+		$('#slider .date').html(pretty);
+		$('#slider .date').css("left", date * multiplier +"px" );
+	}
+   
+	
+	
+	
+	function getSliderDate(year, day) {
+		var dfd = dateFromDay(year, day); // looks like Mon Dec 24 2012 00:00:00 GMT-0800 (PST) 
+		return(dfd);
+	}
+	
+
+	// converts day of year (ie 359) to a date
+	function dateFromDay(year, day) {
+		var date = new Date(year, 0); // initialize a date in `year-01-01`
+		return new Date(date.setDate(day)); // add the number of days
+	}
+
+	// returns date today as a number (ie 359)
+	function dateToDayNumber(date) {
+    	var feb = daysInFebruary(date.getFullYear());
+    	var aggregateMonths = [0, // January
+                           31, // February
+                           31 + feb, // March
+                           31 + feb + 31, // April
+                           31 + feb + 31 + 30, // May
+                           31 + feb + 31 + 30 + 31, // June
+                           31 + feb + 31 + 30 + 31 + 30, // July
+                           31 + feb + 31 + 30 + 31 + 30 + 31, // August
+                           31 + feb + 31 + 30 + 31 + 30 + 31 + 31, // September
+                           31 + feb + 31 + 30 + 31 + 30 + 31 + 31 + 30, // October
+                           31 + feb + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31, // November
+                           31 + feb + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30, // December
+                         ];
+    	return aggregateMonths[date.getMonth()] + date.getDate();
+	}
+
+	// works out how many days in Feb for current year
+	function daysInFebruary(year) {
+    	if(year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) {
+        	// Leap year
+        	return 29;
+    	} else {
+        	// Not a leap year
+        	return 28;
+    	}
+	}
+}

@@ -5,7 +5,7 @@
 	<div id="currentInfo">See how the world is feeling...
 		<a href="/about">read more</a>
     </div>
-    <div id="container">
+    <div id="container" class="clearfix">
     	<div class="fallback">
 			<div class="copy">
 				<p><strong>This code is experimental. It requires a desktop browser with webGL support e.g. Chrome or Firefox.</strong></p>
@@ -16,8 +16,12 @@
     </div>
     
     <div id="slider">
+    <div style="position:relative; height:20px">
+    <div class="date"></div>
+    </div>
     <form>
-    <input type="range" min="1" max="365" value="25" step="1">
+    
+    <input type="range" min="1" max="" width="365" value="1" step="1">
     </form>
     </div>
 {{#extend "scripts"}}
@@ -37,5 +41,8 @@
     
 	<script type="text/javascript">
 		init();
+		slider();
     </script>
+    
+    
 {{/extend}}

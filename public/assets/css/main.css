@@ -82,6 +82,10 @@ body#index {
 	margin:0; padding:0 
 }
 
+#container {
+	height:auto;
+}
+
 #currentInfo {
 	position: absolute;
 	left: 20px;
@@ -124,12 +128,27 @@ a.external {
 #slider {
 	position: absolute;
 	width:100%;
-	bottom: 10px;
-	left: 10px;
+	bottom: 0;
+	padding:0 40px;
+	margin:0 auto;
+}
+
+#slider .date {
+	position:absolute; 
+	top:-20px; 
+	left:1px;
+	margin-left: -50px; 
+	/* height:20px; */
+	width:100px; 
+	text-align:center;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding:5px 0;
 }
 
 #slider input {
-	 width:90%; 
+	 width:100%;
+	
 	 margin:0 auto;
 }
 
