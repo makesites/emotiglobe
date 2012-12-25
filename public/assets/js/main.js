@@ -101,9 +101,10 @@ var slider = {
 	"updateSliderDate": function(year, date) {
 		var newdate = this.getSliderDate(year, date);
 		var day = newdate.getDate();
-		var mon = newdate.getMonth() + 1;
+		var mon = newdate.getMonth();
+		var mon = this.monthToString(mon);
 		var fyear = newdate.getFullYear();
-		var pretty = mon + "-" + day + "-" + fyear;
+		var pretty = mon + " " + day + " " + fyear;
 		var width = this.$slider.width();
 		var multiplier = width / this.dateAsDayNumber;
 		this.$sliderDate.html(pretty);
@@ -119,6 +120,12 @@ var slider = {
 		var date = new Date(year, 0); // initialize a date in `year-01-01`
 		return new Date(date.setDate(day)); // add the number of days
 	},
+	
+	"monthToString": function(month) {
+		var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+		return(monthNames[month]);
+	},
+	
 	// returns date today as a number (ie 359)
 	"dateToDayNumber": function (date) {
     	var feb = this.daysInFebruary(date.getFullYear());

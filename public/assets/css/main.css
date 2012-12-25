@@ -24,7 +24,7 @@
 
 html {
 	height: 100%;
-	font-size:95%;
+	font-size: 95%;
 }
 
 body {
@@ -38,7 +38,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, strong {
-	font-weight:600;
+	font-weight: 600;
 }
 
 body#index { 
@@ -61,29 +61,30 @@ body#index {
 .fallback { 
 	position: relative; 
 	width: 660px; 
-	height:640px; 
-	margin:0 auto; 
-	background:url(../img/fallback-back.jpg) no-repeat top left; 
+	height: 640px; 
+	margin: 0 auto; 
+	background: url(../img/fallback-back.jpg) no-repeat top left; 
 }
 
 .fallback .copy { 
 	position: relative; 
-	top:150px; 
-	width:300px; 
+	top: 150px; 
+	width: 300px; 
 	margin: 0 auto;
-	padding:10px; 
-	border:thin solid #fff; 
-	border-radius:10px;
+	padding: 10px; 
+	border: thin solid #fff; 
+	border-radius: 10px;
 	-webkit-border-radius: 10px;
 	background-color: rgba(255,255,255,.7); 
 }
 
 .fallback .copy p { 
-	margin:0; padding:0 
+	margin:0; 
+	padding:0 
 }
 
 #container {
-	height:auto;
+	height: auto;
 }
 
 #currentInfo {
@@ -93,7 +94,7 @@ body#index {
 	margin: 0 auto;
 	padding: 10px;
 	border-top: 1px solid rgba(255,255,255,0.4);
-	z-index:999;
+	z-index: 999;
 }
 
 #about #currentInfo {
@@ -122,34 +123,39 @@ a.external {
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
 	font-size: 1.2em;
-	z-index:999;
+	text-align: center;
+	z-index: 999;
 }
+
 
 #slider {
 	position: absolute;
-	width:100%;
+	width: 100%;
 	bottom: 0;
-	padding:0 40px;
-	margin:0 auto;
+	padding: 0 50px;
+	margin: 0 auto;
+}
+
+#slider .date-container {
+	position: relative;
+	height: 20px;
 }
 
 #slider .date {
-	position:absolute; 
-	top:-20px; 
-	left:1px;
-	margin-left: -50px; 
-	/* height:20px; */
-	width:100px; 
-	text-align:center;
+	position: absolute; 
+	top: -20px; 
+	left: 0px;
+	width: 100px; 
+	margin-left: -60px; 
+	text-align: center;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-	padding:5px 0;
+	padding: 5px 0;
 }
 
 #slider input {
-	 width:100%;
-	
-	 margin:0 auto;
+	width: 100%;
+	margin:0 auto;
 }
 
 /* clearfix solution */
@@ -158,7 +164,7 @@ a.external {
 .colgroup { zoom: 1; }
 
 .col1, .col2, .col3, .col4, .col5, .col6 {
-	float:left; 
+	float: left; 
 	padding: 20px 50px;
 }
 
@@ -177,7 +183,7 @@ a.external {
 
 .colgroup section i {
 	font-size: 4em;
-	color:#0C0;
+	color: #0C0;
 	text-align: center;
 	display: block;
 	padding: 20px 0;
@@ -186,10 +192,10 @@ a.external {
 .colgroup .content {
 }
 
-.col1 { width:100%; }
-.col2 { width:75%  }
-.col3 { width:50%; }
-.col4 { width:33.333%; }
+.col1 { width: 100%; }
+.col2 { width: 75%  }
+.col3 { width: 50%; }
+.col4 { width: 33.333%; }
 .col5 { width: 25%; }
 .col6 { width: 16.666%; }
 .col7 { width: 8.333%; }
@@ -201,9 +207,9 @@ a.external {
 	top: 0;
 	width: 200px;
 	height: 150px;
-	font-family:Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	text-decoration: none !important;
-	z-index:999;
+	z-index: 999;
 }
 
 .ribbon:hover {
