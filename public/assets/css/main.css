@@ -37,7 +37,7 @@ body {
 	line-height: 20px;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, strong {
 	font-weight:600;
 }
 
@@ -161,12 +161,10 @@ a.external {
 	color:#0C0;
 	text-align: center;
 	display: block;
-	
 	padding: 20px 0;
 }
  
 .colgroup .content {
-	
 }
 
 .col1 { width:100%; }
