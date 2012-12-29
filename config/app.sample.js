@@ -19,7 +19,9 @@ module.exports = config = {
 	  "key" : "",
 	  "secret" : "",
 	  "bucket" : "s3bucketname",
-	  "path" : "/emotiglobe/"
+	  "path" : "/emotiglobe/",
+	  "region" : "us-west-1",
+	  "acl" : "public-read"
   }
   
 }
