@@ -13,7 +13,7 @@ var express = require('express'),
 
 // Configuration
 
-app.configure(function(){
+//app.configure(function(){
 	app
 	.set('views', __dirname + '/views')
 	.set('view engine', 'html')
@@ -23,15 +23,15 @@ app.configure(function(){
 //  app.use(express.methodOverride());
 //  app.use(app.router);
 //  app.use(express.logger());
-});
+//});
 
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-});
+//app.configure('development', function(){
+//  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+//});
 
-app.configure('production', function(){
-  app.use(express.errorHandler()); 
-});
+//app.configure('production', function(){
+//  app.use(express.errorHandler()); 
+//});
 
 // Routes
 
